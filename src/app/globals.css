@@ -1,26 +1,126 @@
 @import "tailwindcss";
 
+@theme {
+  --font-merienda: var(--font-merienda), serif;
+  --font-tiro: var(--font-tiro), serif;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #FFF5E1; /* Soft Ivory/Cream Background */
+  --foreground: #4A2511; /* Deep Warm Brown */
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* --- SWARN AKSHAR TEXT CLASSES (Light Theme) --- */
+.text-swarn-hindi {
+  color: #B8860B; /* Dark Goldenrod / Bronze */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); 
+}
+
+.text-swarn-english {
+  color: #7B5E46; /* Muted earthy brown */
+}
+
+/* --- MANDIR ARCH PAGE STYLE --- */
+.mandir-arch {
+  background-color: #FDF1D6; /* Light warm parchment */
+  
+  /* Mandir Dome Shape: Heavily rounded top, slightly rounded bottom */
+  border-radius: 140px 140px 12px 12px; 
+  
+  /* Main Outer Border */
+  border: 3px solid #D4AF37; 
+  
+  /* Box Shadow creates a secondary inner border for an architectural "doorway" look */
+  box-shadow: 
+    inset 0 0 0 5px #FDF1D6, /* Space between outer and inner border */
+    inset 0 0 0 7px rgba(212, 175, 55, 0.5), /* Faint inner gold border */
+    inset 0 0 40px rgba(139, 69, 19, 0.08), /* Soft inner age shadow */
+    0 12px 24px rgba(0,0,0,0.06); /* Drop shadow */
+    
+  position: relative;
+  overflow: hidden;
+}
+
+/* Scripture Texture overlay for Mandir Arch */
+.mandir-arch::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    linear-gradient(45deg, transparent 48%, rgba(184, 134, 11, 0.08) 50%, transparent 52%),
+    linear-gradient(-45deg, transparent 48%, rgba(184, 134, 11, 0.08) 50%, transparent 52%);
+  background-size: 40px 40px;
+  pointer-events: none;
+  border-radius: inherit;
+  mix-blend-mode: multiply;
+}
+
+/* Scroll View Mandir Card (If you have a vertical list view) */
+.mandir-arch-scroll {
+  background-color: #FDF1D6; 
+  /* Slightly smaller dome for list items */
+  border-radius: 80px 80px 12px 12px; 
+  border: 2px solid #D4AF37;
+  box-shadow: 
+    inset 0 0 40px rgba(139, 69, 19, 0.08), 
+    0 8px 16px rgba(0,0,0,0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Scroll View Texture Overlay */
+.mandir-arch-scroll::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    radial-gradient(circle at top left, rgba(184, 134, 11, 0.15) 2px, transparent 3px);
+  background-size: 20px 20px;
+  pointer-events: none;
+  border-radius: inherit;
+  mix-blend-mode: multiply;
+}
+
+/* --- HALF-MANDIR BOOK PAGES (SPLIT DESIGN) --- */
+/* --- HALF-MANDIR BOOK PAGES (SPLIT DESIGN) --- */
+
+/* Right page of the book (Spine on the left) */
+.mandir-half-right {
+  background-color: #FDF1D6;
+  border-radius: 0 12px 12px 0; 
+  border: 3px solid #D4AF37;
+  border-left-width: 1px;
+  box-shadow: inset 0 0 40px rgba(139, 69, 19, 0.08), 8px 12px 24px rgba(0,0,0,0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Left page of the book (Spine on the right) */
+.mandir-half-left {
+  background-color: #FDF1D6;
+  border-radius: 12px 0 0 12px; 
+  border: 3px solid #D4AF37;
+  border-right-width: 1px;
+  box-shadow: inset 0 0 40px rgba(139, 69, 19, 0.08), -8px 12px 24px rgba(0,0,0,0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Scripture Texture overlay */
+.mandir-half-right::before, .mandir-half-left::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    linear-gradient(45deg, transparent 48%, rgba(184, 134, 11, 0.08) 50%, transparent 52%),
+    linear-gradient(-45deg, transparent 48%, rgba(184, 134, 11, 0.08) 50%, transparent 52%);
+  background-size: 40px 40px;
+  pointer-events: none;
+  border-radius: inherit;
+  mix-blend-mode: multiply;
 }
