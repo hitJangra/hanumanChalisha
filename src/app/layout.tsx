@@ -37,6 +37,8 @@ export default function RootLayout({
       {/* Removed the hardcoded bg and text colors. globals.css will handle this now! */}
       <body className="font-merienda antialiased">
         {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
